@@ -1,0 +1,69 @@
+# marjahans_bootstrap.yaml  (run with: codex marjahans_bootstrap.yaml)
+goal: >
+  Create a production-ready WooCommerce storefront for “Marjahan’s” jewellery,
+  from empty repo to deployable stage, following the specification below.
+
+context: |
+  • Brand:  “Marjahan’s” – premium Bangladeshi fine‑jewellery house.
+  • Platform: WordPress 6.x + WooCommerce 8.x.
+  • Functionality must include:
+     – Advanced product filters (metal, stone, occasion, price).
+     – High‑res image zoom & 360° viewer (use a JS lib, e.g. PhotoSphereJS).
+     – bKash & Nagad gateway (use existing WooCommerce PHP SDKs).
+     – Bangla/English i18n via WPML.
+     – Wishlist, reviews, loyalty points (via YITH plugins or custom).
+     – Responsive Tailwind CSS design matching style‑guide (provided as Figma link).
+  • DevOps:
+     – Local dev with Docker (php‑fpm, nginx, mysql).
+     – GitHub Actions: build, phpcs, php‑unit, Playwright E2E, deploy to staging on Fly.io.
+
+steps:
+  - name: Plan File & Directory Structure
+    prompt: |
+      Using the context, draft a file tree for the project.  
+      Include: docker/, wp-content/themes/marjahans/, wp-content/plugins/marjahans‑gateway/, tests/, .github/workflows/.
+      Output as a fenced ```tree``` block only.
+
+  - name: Generate Docker Environment
+    prompt: |
+      Create Dockerfile, docker-compose.yml and README_dev.md.  
+      Containers: nginx, php-fpm 8.3, mysql 8, mailhog.  
+      Ensure volume mapping so WordPress files persist.
+
+  - name: Scaffold Custom Theme
+    prompt: |
+      In wp-content/themes/marjahans/:  
+      • enqueue Tailwind (via wp_enqueue and theme.json).  
+      • create header.php, footer.php, functions.php, index.php using Timber/Twig.  
+      • add src/css/tailwind.css and build script (npm + laravel‑mix or Vite).  
+      Provide code diffs only.
+
+  - name: Build Payment Gateway Plugin
+    prompt: |
+      In wp-content/plugins/marjahans‑gateway/:  
+      • PHP class `Marjahans_Gateway_Bkash` extending WC_Payment_Gateway.  
+      • Use the official bKash checkout REST API (sandbox keys placeholders).  
+      • Settings page under WooCommerce ▶ Settings ▶ Payments.  
+      • Add PHPUnit test stubs in tests/php.
+
+  - name: Product Filters & 360° Viewer
+    prompt: |
+      • Add a Products → Filters React component loaded via wp_enqueue_script.  
+      • Integrate PhotoSphereJS for 360° images; hook into single‑product template.  
+      • Add Playwright tests in tests/e2e.
+
+  - name: Internationalisation
+    prompt: |
+      Enable WPML configuration for English & Bangla.  
+      Create *.pot file and add Bangla translation for header menu items.
+
+  - name: CI/CD & Deployment
+    prompt: |
+      Generate /.github/workflows/ci.yml to run phpcs, php‑unit, npm build.  
+      Create fly.toml for Fly.io deployment; workflow should deploy to staging on push to main, production on tag v*.
+
+  - name: README
+    prompt: |
+      Write README.md explaining local setup, scripts, and deployment procedure.
+
+output_format: diff
