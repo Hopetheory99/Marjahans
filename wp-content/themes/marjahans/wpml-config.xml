@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wpml-config>
+  <admin-texts>
+    <key name="header_menu_home" />
+    <key name="header_menu_shop" />
+  </admin-texts>
+</wpml-config>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "brand-gold", "color": "#c6a664" }
+      ]
+    }
+  }
+}
+

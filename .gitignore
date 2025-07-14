@@ -1,0 +1,7 @@
+node_modules/
+build/
+wp-content/themes/marjahans/build/
+wp-content/themes/marjahans/node_modules/
+wp-content/plugins/*/node_modules/
+wp-content/plugins/*/build/
+vendor/

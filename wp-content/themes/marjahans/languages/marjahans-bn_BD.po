@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Marjahans Theme\n"
+"Language: bn_BD\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Home"
+msgstr "হোম"
+
+msgid "Shop"
+msgstr "দোকান"

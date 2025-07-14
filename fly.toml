@@ -1,0 +1,7 @@
+app = "marjahans-store"
+
+[build]
+  dockerfile = "docker/php/Dockerfile"
+
+[env]
+  WORDPRESS_ENV = "production"
