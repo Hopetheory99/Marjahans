@@ -1,0 +1,21 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+<head>
+  <meta charset="{{ site.charset }}">
+  {{ function('wp_head') }}
+</head>
+<body {{ function('body_class') }}>
+<header class="site-header py-4">
+  <h1 class="text-2xl font-bold"><a href="{{ site.url }}">{{ site.name }}</a></h1>
+  <nav class="mt-2">
+    <ul class="flex gap-4">
+      <li>
+        <a href="/">{{ function('esc_html__', 'Home', 'marjahans') }}</a>
+      </li>
+      <li>
+        <a href="/shop">{{ function('esc_html__', 'Shop', 'marjahans') }}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+

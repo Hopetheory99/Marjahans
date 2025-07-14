@@ -32,7 +32,26 @@ This document outlines the high level tasks required to build the Marjahans jewe
 
 7. **Documentation**
    - Update `/docs/` with architecture decisions and design system links.
+   - Document the CI/CD workflow in `docs/ci_cd.md`.
+   - Provide Figma design system links in `docs/design-system.md`.
 
 ## Next Steps
 
 Run `codex marjahans_bootstrap.yaml` to automatically scaffold the initial directories and files. Follow the coding standards defined in `AGENTS` and keep documentation up to date.
+
+## Local Development
+
+The Docker environment defined in `docker-compose.yml` provides the following services:
+
+- `php` – WordPress running on PHP‑FPM 8.3
+- `nginx` – serves the site on <http://localhost:8080>
+- `db` – MySQL 8 with persistent volume `db_data`
+- `mailhog` – catch‑all SMTP server on <http://localhost:8025>
+
+Start everything with:
+
+```bash
+docker compose up -d
+```
+
+This mounts the repository into the containers so code changes are reflected immediately.

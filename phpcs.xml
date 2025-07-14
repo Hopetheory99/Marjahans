@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="Marjahans">
+    <config name="installed_paths" value="vendor/wp-coding-standards/wpcs"/>
+    <rule ref="WordPress"/>
+    <exclude-pattern>wp-content/*/vendor/*</exclude-pattern>
+</ruleset>
