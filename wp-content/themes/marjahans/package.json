@@ -6,7 +6,7 @@
     "build": "vite build",
     "format": "prettier --write \"**/*.{js,ts,tsx,css}\"",
     "format:check": "prettier --check \"**/*.{js,ts,tsx,css}\"",
-    "test:e2e": "playwright test"
+    "test:e2e": "NODE_PATH=./node_modules playwright test"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
@@ -15,11 +15,12 @@
     "tailwindcss": "^3.3.5",
     "vite": "^5.0.0",
     "@vitejs/plugin-react": "^4.0.0",
+    "@playwright/test": "^1.43.0",
     "playwright": "^1.43.0"
   },
   "dependencies": {
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "photo-sphere-viewer": "^5.0.4"
+    "photo-sphere-viewer": "^4.8.1"
   }
 }
